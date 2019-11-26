@@ -23,5 +23,18 @@ body {
 	cursor: pointer;
 }
 
+.score-container {
+	border: 3px solid white;
+	width: 350px;
+	margin: 20px auto;
+	text-align: center;
+	color: white;
+
+}
+
+.play-again {
+	
+}
+
 
 

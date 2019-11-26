@@ -2,11 +2,15 @@ import React from 'react';
 import paper from './paper.svg';
 import rock from './rock.svg';
 import scissors from './scissors.svg';
+import { PlayAgainButton } from './play-again-button';
 
 export class GameScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		this.computersChoice = '';
+		this.state = {
+			visibility: true
+		}
 	}
 	render() {
 		return (
@@ -22,6 +26,7 @@ export class GameScreen extends React.Component {
 			<div className="result">
 				<h2>{ this.showResult( this.props.playersChoice, this.props.computersChoice) }</h2>
 			</div>
+		
 		</>
 		)
 	}
