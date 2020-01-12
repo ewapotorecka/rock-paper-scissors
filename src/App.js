@@ -1,97 +1,83 @@
-import React from "react";
-import { createStore } from "redux";
+import React from 'react';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import "./App.css";
-import { GameScreen } from "./game-screen";
-import { PlayAgainButton } from "./play-again-button";
+import './App.css';
+import GameScreen from './game-screen';
+import ScoreContainer from './score-container';
 
 const initialState = {
-	showGameButtons: true,
-	showPlayAgainButton: false,
+	showGameScreen: true,
+	showResultScreen: false,
 	score: {
-	  Player: 0,
-	  Computer: 0
+		Player: 0,
+		Computer: 0
 	}
-  };
-const store = createStore(reducer);
+};
 
+const store = createStore( reducer );
 
-
-function reducer(state = initialState, action) {
-  console.log("reducer", state, action);
-  switch(action.type) {
-	case 'UPDATE_SCORE':
-		return {
-
-		};
-	case 'SHOW_RESULT_SCREEN':
-		return {
-			showGameButtons: false,
-			showPlayAgainButton: true
-		};
-	case 'SHOW_GAME_SCREEN':
-		return {
-			showGameButtons: true,
-			showPlayAgainButton: false
-		};
-	default:
-		return state;
+function reducer( state = initialState, action ) {
+	switch ( action.type ) {
+		case 'UPDATE_SCORE_TIE':
+			return state;
+		case 'UPDATE_SCORE_PLAYER_WIN':
+			return {
+				...state,
+				score: {
+					Player: state.score.Player + 1,
+					Computer: state.score.Computer
+				}
+			};
+		case 'UPDATE_SCORE_COMPUTER_WIN':
+			return {
+				...state,
+				score: {
+					Player: state.score.Player,
+					Computer: state.score.Computer + 1
+				}
+			};
+		case 'SHOW_RESULT_SCREEN':
+			return {
+				...state,
+				showGameScreen: false,
+				showResultScreen: true
+			};
+		case 'SHOW_GAME_SCREEN':
+			return {
+				...state,
+				showGameScreen: true,
+				showResultScreen: false
+			};
+		default:
+			return state;
+	}
 }
-}
-
-
-
-store.dispatch({type: 'SHOW_RESULT_SCREEN'});
-store.dispatch({type: 'SHOW_GAME_SCREEN'});
-
-
-
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showGameButtons: true,
-      showPlayAgainButton: false,
-      score: {
-        Player: 0,
-        Computer: 0
-      }
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+	constructor( props ) {
+		super( props );
+		this.state = {
+			showGameScreen: true,
+			showPlayAgainButton: false,
+			score: {
+				Player: 0,
+				Computer: 0
+			}
+		};
+	}
 
-  render() {
-    return (
-      <>
-	  	<Provider store={store}>
-			<div className="buttons-container">
-			<GameScreen
-				visibility={this.state.showGameButtons}
-				onClick={this.handleClick}
-			/>
-			</div>
-			<div className="score-container">
-			<div className="score">
-				Player {this.state.score.Player} Computer{" "}
-				{this.state.score.Computer}
-			</div>
-			<div>
-				<PlayAgainButton
-				visibility={this.state.showPlayAgainButton}
-				onClick={this.handleClick}
-				/>
-			</div>
-			</div>
-		</Provider>
-      </>
-    );
-  }
-
-  handleClick() {
-    this.setState({
-      showGameButtons: !this.state.showGameButtons,
-      showPlayAgainButton: !this.state.showPlayAgainButton
-    });
-  }
+	render() {
+		return (
+			<>
+				<Provider store={store}>
+					<div className="buttons-container">
+						<GameScreen />
+					</div>
+					<div className="score-container">
+						<ScoreContainer />
+					</div>
+				</Provider>
+			</>
+		);
+	}
 }

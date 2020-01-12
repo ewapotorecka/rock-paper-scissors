@@ -25,7 +25,9 @@ body {
 
 .score-container {
 	border: 3px solid white;
+	border-radius: 5px;
 	width: 350px;
+	height: 20px;
 	margin: 20px auto;
 	text-align: center;
 	color: white;
@@ -33,7 +35,12 @@ body {
 }
 
 .play-again {
-	
+	border: 3px solid white;
+	margin: 60px auto;
+	text-align: center;
+	color: white;
+	background-color: #134074;
+	border-radius: 5px;
 }
 
 

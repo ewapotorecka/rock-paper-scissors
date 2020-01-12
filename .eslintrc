@@ -1,0 +1,9 @@
+{
+    "extends": [
+		"react",
+		"ckeditor5"
+	],
+	"env": {
+		"browser": true
+	}
+}
