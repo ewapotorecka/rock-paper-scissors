@@ -1,3 +1,12 @@
+# Rock paper scissors game
+created with Create React App
+
+![](rps.png)
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
