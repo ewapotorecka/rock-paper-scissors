@@ -35,11 +35,11 @@ class ResultScreen extends React.Component {
 		return (
 			<>
 				<div className="players-choice">
-					<h3>Player:</h3>
+					<h3>Player: </h3>
 					{ this.showChoice( this.props.playersChoice ) }
 				</div>
 				<div className="computers-choice">
-					<h3>Computer:</h3>
+					<h3>Computer: </h3>
 					{ this.showChoice( this.props.computersChoice ) }
 				</div>
 				<div className="result">

@@ -36,6 +36,14 @@ function reducer( state = initialState, action ) {
 					Computer: state.score.Computer + 1
 				}
 			};
+		case 'RESET_SCORE':
+			return {
+				...state,
+				score: {
+					Player: 0,
+					Computer: 0
+				}
+			}
 		case 'SHOW_RESULT_SCREEN':
 			return {
 				...state,

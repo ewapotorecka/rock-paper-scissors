@@ -2,11 +2,16 @@ body {
 	background-color: #0B2545;
 }
 
+#root {
+	display: flex;
+}
+
 .buttons-container {
 	width: 350px;
-	height: 250px;
+	height: 350px;
 	margin: auto;
 	margin-top: 100px;
+	margin-left: 500px;
 	padding: 0px;
 	border:4px solid #134074;
 	border-radius: 20px;
@@ -15,7 +20,8 @@ body {
 	color: #0B2545;
 }
 .game-button {
-	margin: 10px;
+	margin: 50px 10px;
+	
 	/* width: 70px;
 	height: 70px; */
 	border: 3px solid #13315C;
@@ -24,19 +30,36 @@ body {
 }
 
 .score-container {
-	border: 3px solid white;
+	border: 3px solid #EBEBEB;
 	border-radius: 5px;
-	width: 350px;
-	height: 20px;
+	width: 250px;
+	height: 250px;
 	margin: 20px auto;
+	margin-top: 150px;
 	text-align: center;
-	color: white;
+	color: #EBEBEB;
+	background-color:  #134074;
 
 }
 
-.play-again {
-	border: 3px solid white;
+.score-container button {
+	border: 3px solid #0B2545;
 	margin: 60px auto;
+	text-align: center;
+	color: #0B2545;
+	background-color: #EBEBEB;
+	border-radius: 5px;
+	height: 40px;
+	width: 100px;
+	font-size: 0.8em;
+}
+
+.play-again {
+	height: 40px;
+	width: 100px;
+	font-size: 0.8em;
+	border: 3px solid #EBEBEB;
+	margin: 20px auto;
 	text-align: center;
 	color: white;
 	background-color: #134074;

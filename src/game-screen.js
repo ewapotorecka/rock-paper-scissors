@@ -13,6 +13,17 @@ function mapStateToProps( state ) {
 }
 
 class GameScreen extends React.Component {
+	calculateComputersChoice() {
+		const results = [ 'paper', 'rock', 'scissors' ];
+		const computersChoice = results[ Math.floor( Math.random() * 3 ) ];
+		this.setState( { computersChoice } );
+	}
+
+	handleClick( playersChoice ) {
+		this.calculateComputersChoice();
+		this.setState( { playersChoice } );
+		this.props.dispatch( { type: 'SHOW_RESULT_SCREEN' } );
+	}
 
 	render() {
 		if ( this.props.showGameScreen ) {
@@ -23,6 +34,7 @@ class GameScreen extends React.Component {
 					</div>
 					<button
 						className="game-button"
+						id="rock"
 						onClick={ () => {
 							this.handleClick( 'rock' );
 						} }>
@@ -47,18 +59,6 @@ class GameScreen extends React.Component {
 		} else {
 			return <ResultScreen playersChoice={ this.state.playersChoice } computersChoice={ this.state.computersChoice } />;
 		}
-	}
-
-	calculateComputersChoice() {
-		const results = [ 'paper', 'rock', 'scissors' ];
-		const computersChoice = results[ Math.floor( Math.random() * 3 ) ];
-		this.setState( { computersChoice } );
-	}
-
-	handleClick( playersChoice ) {
-		this.calculateComputersChoice();
-		this.setState( { playersChoice } );
-		this.props.dispatch( { type: 'SHOW_RESULT_SCREEN' } );
 	}
 }
 
