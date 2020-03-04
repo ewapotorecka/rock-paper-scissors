@@ -1,6 +1,8 @@
 # Rock paper scissors game
 created with Create React App
 
+https://ewapotorecka.github.io/rock-paper-scissors/
+
 ![](rps.png)
 
 
